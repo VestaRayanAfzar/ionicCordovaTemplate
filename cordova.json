@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "cordova-plugin-whitelist",
+        "ionic-plugin-keyboard",
+        "cordova-plugin-statusbar",
+        "cordova-plugin-splashscreen",
+        "cordova-plugin-x-toast"
+    ],
+    "platforms": []
+}

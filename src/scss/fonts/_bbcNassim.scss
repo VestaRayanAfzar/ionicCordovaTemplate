@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'BBCNassim';
+    src: url('#{$font-path}/BBCNassim.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/BBCNassim.woff') format('woff'),
+    url('#{$font-path}/BBCNassim.ttf') format('truetype'),
+    url('#{$font-path}/BBCNassim.svg#BBCNassim') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BBCNassim';
+    src: url('#{$font-path}/BNazanin.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/BNazanin.woff') format('woff'),
+    url('#{$font-path}/BNazanin.ttf') format('truetype'),
+    url('#{$font-path}/BNazanin.svg#BNazanin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+30-39;
+}

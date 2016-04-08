@@ -1,0 +1,10 @@
+$float: right;
+$opposite-float: left;
+$direction: rtl;
+$opposite-direction: ltr;
+$font-path: '../fonts';
+
+@import 'fonts/bbcNassim';
+$baseFontFamily: BBCNassim, Tahoma, Geneva, sans-serif;
+
+@import "common";

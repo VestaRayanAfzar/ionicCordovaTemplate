@@ -1,0 +1,32 @@
+$layoutSmallMax: 500px;
+$layoutMediumMax: 960px;
+// font
+$fontSizeBase: 14px;
+$fontSizeSmall: 12px;
+$fontSizeMedium: 18px;
+$fontSizeLarge: 26px;
+$fontSizeXLarge: 36px;
+$fontSizeXXLarge: 48px;
+// colors
+$bodyBgColor: #fafafa;
+$borderColor: #c9c9c9;
+// timing
+$transitionShortDuration: 150ms;
+$transitionMediumDuration: 300ms;
+$transitionLongDuration: 600ms;
+// zIndex
+$zIndexBase: 1;
+$zIndexDialog: 9;
+$zIndexDatePicker: 99;
+// overriding ionic
+$light: #fff;
+$stable: #f8f8f8;
+$positive: #387ef5;
+$calm: #11c1f3;
+$balanced: #33cd5f;
+$energized: #ffc900;
+$assertive: #ef473a;
+$royal: #886aea;
+$dark: #444;
+//
+$headings-font-family: $baseFontFamily;

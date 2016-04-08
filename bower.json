@@ -1,0 +1,10 @@
+{
+  "name": "clientCodeTemplate",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jsSHA": "^2.0.2",
+    "ionic": "^1.2.4",
+    "es6-promise": "^3.2.1"
+  }
+}

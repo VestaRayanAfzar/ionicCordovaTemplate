@@ -1,0 +1,216 @@
+$dpWrapperWidth: 90vw;
+$dpAltWrapperWidth: 60vw;
+$dpWrapperOffset: (100vw - $dpWrapperWidth)/2;
+$dpAltWrapperOffset: (100vw - $dpAltWrapperWidth)/2;
+$dpCellWidth: 32px;
+$dpBgColor: transparentize($dark, .25);
+$dpContentHeight: 375px;
+
+%dp-button {
+    font-family: $baseFontFamily;
+    background: transparent;
+    color: $dark;
+    font-size: $fontSizeMedium;
+    padding: 10px 0;
+    border: 0;
+    transition: all $transitionMediumDuration;
+    &.activated {
+        background-color: $borderColor;
+    }
+}
+
+.dp-outer-wrapper {
+    position: absolute;
+    background: $dpBgColor;
+    z-index: $zIndexDatePicker;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    &.dp-modal {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &.dp-visible {
+        display: flex;
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+.dp-wrapper {
+    background: $bodyBgColor;
+    z-index: $zIndexDatePicker;
+    border-radius: $button-border-radius;
+    position: relative;
+    width: $dpWrapperWidth;
+    transition: all $transitionMediumDuration;
+    &.dp-alt-mode {
+        width: $dpAltWrapperWidth;
+        &.dp-month-select-mode {
+            table, .dp-year-select {
+                display: none;
+            }
+            .dp-month-select {
+                display: block;
+            }
+        }
+        &.dp-year-select-mode {
+            table, .dp-month-select {
+                display: none;
+            }
+            .dp-year-select {
+                display: block;
+            }
+        }
+        .dp-current {
+            .icon {
+                display: none;
+            }
+        }
+    }
+    .dp-year-select, .dp-month-select {
+        display: none;
+    }
+}
+
+.dp-header {
+    width: 100%;
+    text-align: center;
+    background: $teal;
+    > div {
+        white-space: nowrap;
+        font-size: $fontSizeLarge;
+        color: $light;
+        padding: 15px 0;
+    }
+    .dp-day {
+        background: darken($teal, 10%);
+    }
+    .dp-month {
+        font-size: $fontSizeLarge;
+    }
+    .dp-date {
+        font-size: $fontSizeXXLarge;
+        font-family: Tahoma, serif;
+        padding: 20px 0 25px 0;
+    }
+    .dp-year {
+        font-size: $fontSizeLarge;
+        font-family: Tahoma, serif;
+        padding-bottom: 20px;
+    }
+}
+
+.dp-body {
+    .dp-current {
+        text-align: center;
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        > span {
+            display: inline-block;
+            padding: 15px 10px 0 10px;
+            font-size: $fontSizeLarge;
+            vertical-align: middle;
+            &.dp-curr-year {
+                font-family: Tahoma, serif;
+            }
+            &.icon {
+                flex: 1;
+                padding: 10px;
+                color: lighten($dark, 20%);
+                &:first-child {
+                    text-align: $float;
+                }
+                &:last-child {
+                    text-align: $opposite-float;
+                }
+            }
+        }
+    }
+    .dp-content {
+        height: $dpContentHeight;
+        overflow: hidden;
+        overflow-y: auto;
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+            th {
+                padding: 20px 10px 10px;
+                white-space: nowrap;
+            }
+            td {
+                white-space: nowrap;
+                text-align: center;
+                font-family: Tahoma, serif;
+                padding: 10px 2px;
+                > span {
+                    display: inline-block;
+                    padding: 6px 5px;
+                    width: $dpCellWidth;
+                    height: $dpCellWidth;
+                    border-radius: 50%;
+                    transition: all $transitionMediumDuration;
+                }
+                &.dp-empty {
+
+                }
+                &.dp-holiday {
+                    color: $teal;
+                }
+                &.dp-selected, &.dp-today {
+                    color: $light;
+                    > span {
+                        display: inline-block;
+                    }
+                }
+                &.dp-today {
+                    > span {
+                        background: $teal;
+                    }
+                }
+                &.dp-selected {
+                    > span {
+                        background: $indigo;
+                    }
+                }
+            }
+        }
+        > div {
+            &.dp-year-select, &.dp-month-select {
+                > div {
+                    @extend %dp-button;
+                    color: $dark;
+                    border: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: $fontSizeMedium;
+                }
+            }
+        }
+
+    }
+}
+
+.dp-footer {
+    padding: 5px 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    > button {
+        @extend %dp-button;
+        border-top: 1px solid $borderColor;
+        flex: 1;
+        &:first-child {
+            border-#{$opposite-float}: 1px solid $borderColor;
+        }
+    }
+}

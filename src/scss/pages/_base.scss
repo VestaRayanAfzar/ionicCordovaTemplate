@@ -1,0 +1,18 @@
+#base-page {
+    .menu-content {
+        background: url("../img/main-bg.jpg") no-repeat right;
+        background-size: cover;
+        .pane, .view {
+            background: transparent;
+        }
+    }
+
+    .menu-right {
+        background: url("../img/main-bg.jpg") no-repeat left;
+        background-size: cover;
+    }
+
+    div[ui-view=master] {
+        @extend %animated-horizontal;
+    }
+}

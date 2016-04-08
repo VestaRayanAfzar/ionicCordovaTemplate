@@ -1,0 +1,12 @@
+.idea
+/ionic.project
+npm-debug*
+tsd-debug*
+/bower_components
+/build
+/node_modules
+/platforms
+/plugins
+/resources/tsd
+/src/app/config/setting.var.ts
+/www

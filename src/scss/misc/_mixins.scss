@@ -1,0 +1,76 @@
+@mixin rtl($prop, $value, $rtl-value) {
+    @if ($direction == ltr) {
+        #{$prop}: $value;
+    } @else {
+        #{$prop}: $rtl-value;
+    }
+}
+
+@mixin clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin rotate($degrees) {
+    transform: rotate($degrees);
+}
+
+@mixin scale($ratio) {
+    transform: scale($ratio);
+}
+
+@mixin translate($x, $y) {
+    transform: translate($x, $y);
+}
+
+@mixin skew($x, $y) {
+    transform: skew($x, $y);
+    -webkit-backface-visibility: hidden;
+}
+
+@mixin translate3d($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin mediaQuery($minWidth, $maxWidth:0) {
+    @if ($minWidth>0 and $maxWidth>0) {
+        @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+            @content;
+        }
+    } @else if ($minWidth>0) {
+        @media screen and (min-width: $minWidth) {
+            @content;
+        }
+    } @else {
+        @media screen and (max-width: $maxWidth) {
+            @content;
+        }
+    }
+
+}
+
+@mixin mediaQuerySmall() {
+    @include mediaQuery(0, $layoutSmallMax) {
+        @content;
+    }
+}
+
+@mixin mediaQueryMedium() {
+    @include mediaQuery($layoutSmallMax+1, $layoutMediumMax) {
+        @content;
+    }
+}
+
+@mixin mediaQueryLarge() {
+    @include mediaQuery($layoutMediumMax+1) {
+        @content;
+    }
+}

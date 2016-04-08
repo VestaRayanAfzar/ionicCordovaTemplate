@@ -1,0 +1,11 @@
+@function fontSize($coef) {
+    $base: 1rem;
+    @return $base * $coef;
+}
+
+@function getValueByDirection($ltrValue, $rtlValue) {
+    @if ($direction == rtl) {
+        @return $rtlValue;
+    }
+    @return $ltrValue
+}
