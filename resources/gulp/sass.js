@@ -18,7 +18,13 @@ module.exports = function (dir, setting) {
     });
 
     gulp.task('sass:postCss', ['sass:compile'], function () {
-        var preprocessors = [autoPrefixer({browsers: ['last 2 version']})];
+        var preprocessors = [autoPrefixer({
+            browsers: ['last 2 version',
+                'iOS >= 7',
+                'Android >= 4',
+                'Explorer >= 10',
+                'ExplorerMobile >= 11']
+        })];
         if (setting.production) {
             preprocessors.push(mqpacker);
             preprocessors.push(csswring);
